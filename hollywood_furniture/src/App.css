@@ -1,0 +1,15 @@
+.h1 {
+  background-color: lightgray;
+  width: 100%;
+  height: 80px;
+  margin: 0px;
+}
+.h2 {
+  background-color: gray;
+  margin: 0px;
+}
+.main {
+  background-color: blue;
+  width: 100%;
+  height: 100%;
+}
