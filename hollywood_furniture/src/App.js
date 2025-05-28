@@ -9,12 +9,14 @@ import { Home } from "./pages/home.js";
 import { About } from "./pages/about.js";
 import { Contact } from "./pages/contact.js";
 import { Shop } from "./pages/shop.js";
+import NavBar from "./components/navBar.js";
 
 function App() {
   
 
   return (
     <Router>
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/about" element={<About/>} />
