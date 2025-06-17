@@ -1,18 +1,26 @@
+import { useEffect, useState } from "react";
+import '../css_styles/home.css';
 export function Home() {
-    const images = [
-        'https://picsum.photos/id/1011/800/400',
-        'https://picsum.photos/id/1015/800/400',
-        'https://picsum.photos/id/1025/800/400',
-        'https://picsum.photos/id/1035/800/400',
-        'https://picsum.photos/id/1045/800/400',
-        'https://picsum.photos/id/1055/800/400',
-      ];
-    
-    return (
-        <div className="app-container">
-      
-      
+    const [images, setImages] = useState([]);
 
+    useEffect(() => {
+    // Fetch images from backend
+    fetch("http://localhost:5000/")
+      .then((res) => res.json())
+      .then((data) => {
+        // data is an array of objects from your backend
+        const imageUrls = data.map(item => item.photoURL); 
+        setImages(imageUrls);
+        console.log("Home has fetched images:", imageUrls);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch images", err);
+      });
+  }, []);
+
+    return (
+      <div className="app-container">
+      
       {/* Main */}
       <main className="main-content container my-5">
 
@@ -34,7 +42,7 @@ export function Home() {
           <div className="carousel-inner">
             {images.map((src, idx) => (
               <div key={idx} className={`carousel-item ${idx === 0 ? "active" : ""}`}>
-                <img src={src} className="d-block w-100" alt={`Slide ${idx + 1}`} />
+                <img src={src} className="d-block w-100 carousel-image" alt={`Slide ${idx + 1}`} />
               </div>
             ))}
           </div>
