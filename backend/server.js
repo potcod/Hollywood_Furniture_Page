@@ -20,15 +20,20 @@ app.listen(port, () => {
 
 app.get('/', async (req, res) => { // Home page 
     const slideshow = [];
+    const featuredProducts = [];
 
     const querySnapshot = await firestore.collection("home").get();
 	querySnapshot.forEach((doc) => {
 		
 		//Return userID(same as doc name), dislayName, photoURL, and created recipes,
-		slideshow.push({ name: doc.get("name"), displayName: doc.get("price"), photoURL: doc.get("photo") });
+		slideshow.push({ name: doc.get("name"), price: doc.get("price"), photoURL: doc.get("photo"), description: doc.get("description") });
+        featuredProducts.push({ name: doc.get("name"), price: doc.get("price"), photoURL: doc.get("photo"), description: doc.get("description") });
 	});
+
+    
     console.log("Fetched ( " + slideshow.length + " ) items from Firestore");
-	res.status(200).send(slideshow);
+	res.status(200).json({ slideshow: slideshow, featuredProducts: featuredProducts });
+
 
     
 });
