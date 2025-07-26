@@ -1,4 +1,6 @@
-function ProductCard({ product }) {
+import React from 'react';
+import { Link } from 'react-router-dom';
+export function ProductCard({ product }) {
     return(
         <div key={product.name} className="card rounded-lg shadow-md" style={{ width: '18rem' }}>
             <img
