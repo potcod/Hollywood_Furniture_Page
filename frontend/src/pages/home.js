@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import '../css_styles/home.css';
 export function Home() {
     const [images, setImages] = useState([]);
     const [featuredProducts, setFeaturedProducts] = useState([]);
+    
 
     useEffect(() => {
     // Fetch images from backend
@@ -78,9 +80,9 @@ export function Home() {
               <div className="text-lg font-semibold mb-3">
                 Price: ${product.price} {/* Access the price property */}
               </div>
-              <a href="#" className="btn btn-primary bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+               <Link to={`/shop/${product.name}`} className="btn btn-primary bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">  
                 Shop Now
-              </a>
+              </Link>
             </div>
           </div>
         ))}

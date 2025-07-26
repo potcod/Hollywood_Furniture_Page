@@ -1,7 +1,12 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function NavBar(){
+function NavBar() {
+    const [currentPage, setCurrentPage] = useState("Home");
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
 
     return (
         <div>
@@ -25,12 +30,46 @@ function NavBar(){
                             <span className="navbar-toggler-icon"></span>
                         </button>
 
-                        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div className="navbar-collapse" id="navbarNavAltMarkup">
                             <div className="navbar-nav">
-                                <a className="nav-link active" aria-current="page" href="#">Home</a>
-                                <a className="nav-link" href="#/shop">Shop</a>
-                                <a className="nav-link" href="#/about">About</a>
-                                <a className="nav-link" href="#/contact">Contact</a>
+                                <a
+                                    className={`nav-link ${currentPage === 'Home' ? 'active' : ''}`}
+                                    aria-current={currentPage === 'Home' ? 'page' : undefined}
+                                    href="#"
+                                    onClick={() => handlePageChange('Home')}
+                                >
+                                    Home
+                                </a>
+
+                                {/* Shop Link */}
+                                <a
+                                    className={`nav-link ${currentPage === 'Shop' ? 'active' : ''}`}
+                                    aria-current={currentPage === 'Shop' ? 'page' : undefined}
+                                    href="#/shop"
+                                    onClick={() => handlePageChange('Shop')}
+                                >
+                                    Shop
+                                </a>
+
+                                {/* About Link */}
+                                <a
+                                    className={`nav-link ${currentPage === 'About' ? 'active' : ''}`}
+                                    aria-current={currentPage === 'About' ? 'page' : undefined}
+                                    href="#/about"
+                                    onClick={() => handlePageChange('About')}
+                                >
+                                    About
+                                </a>
+
+                                {/* Contact Link */}
+                                <a
+                                    className={`nav-link ${currentPage === 'Contact' ? 'active' : ''}`}
+                                    aria-current={currentPage === 'Contact' ? 'page' : undefined}
+                                    href="#/contact"
+                                    onClick={() => handlePageChange('Contact')}
+                                >
+                                    Contact
+                                </a>
                             </div>
 
                             <div className="ms-auto d-flex align-items-center gap-3">
