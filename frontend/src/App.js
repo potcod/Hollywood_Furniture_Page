@@ -5,10 +5,10 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import './css_styles/App.css';
 
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import { Home } from "./pages/home.js";
-import { About } from "./pages/about.js";
-import { Contact } from "./pages/contact.js";
-import { Shop } from "./pages/shop.js";
+import { Home } from "./pages/home.tsx";
+import { About } from "./pages/about.tsx";
+import { Contact } from "./pages/contact.tsx";
+import { Shop } from "./pages/shop.tsx";
 import NavBar from "./components/navBar.js";
 
 function App() {

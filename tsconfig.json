@@ -1,0 +1,54 @@
+// tsconfig.json (Updated for React)
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "es2019", // Modern JS target, compatible with most browsers
+    "lib": [
+      "dom", // Essential for browser APIs (like fetch, HTMLElement)
+      "dom.iterable", // For iterable types in DOM
+      "esnext" // Latest ECMAScript features
+    ],
+    "jsx": "react-jsx", // <--- CRITICAL: Tell TypeScript to process JSX for React 17+
+    // If you're using React < 17 and need 'import React from "react";'
+    // then use "jsx": "react" instead of "react-jsx"
+
+    /* Modules */
+    "module": "esnext", // Use modern ES module syntax (import/export)
+    "moduleResolution": "node", // How modules are resolved (standard for Node.js/bundlers)
+    "resolveJsonModule": true, // Allow importing .json files
+    "allowSyntheticDefaultImports": true, // Allow 'import X from "y"' for modules that don't have default exports
+    "esModuleInterop": true, // <--- CRITICAL: Enables compatibility for CommonJS imports
+
+    /* JavaScript Support */
+    "allowJs": true, // <--- IMPORTANT: Allows you to mix .js and .ts/.tsx files (for gradual migration)
+    // "checkJs": true, // Optional: Enable type checking for .js files too (good for strictness)
+
+    /* Emit */
+    "noEmit": true, // <--- CRITICAL: Tell TypeScript NOT to emit JS files. Your bundler (Webpack/Vite) will do this.
+    // "outDir": "./dist", // If you were to emit, where output goes (not needed with noEmit: true)
+
+    /* Interop Constraints */
+    "isolatedModules": true, // Ensures each file can be compiled independently (important for bundlers like Babel/SWC)
+    "forceConsistentCasingInFileNames": true, // Enforce consistent casing for imports
+
+    /* Type Checking */
+    "strict": true, // <--- HIGHLY RECOMMENDED: Enable all strict type-checking options
+    // "noImplicitAny": true, // Included in "strict"
+    // "strictNullChecks": true, // Included in "strict"
+    // "noUnusedLocals": true, // Optional: Warns about unused local variables
+    // "noUnusedParameters": true, // Optional: Warns about unused function parameters
+    // "noFallthroughCasesInSwitch": true, // Optional: Warns about missing breaks in switch
+
+    /* Completeness */
+    "skipLibCheck": true // Skip type checking declaration files from node_modules (speeds up compilation)
+  },
+  "include": [
+    "frontend", // <--- CRITICAL: Tell TypeScript to include all files in your 'src' directory
+    // Add other folders if your source code is outside 'src'
+  ],
+  "exclude": [
+    "node_modules",
+    "build", // Exclude build output
+    "dist" // Exclude distribution output
+  ]
+}

@@ -1,26 +1,6 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-export function Shop() {
-    const [products, setProducts] = useState([]);
-    useEffect(() => {
-    // Fetch images from backend
-    fetch("http://localhost:5000/shop")
-      .then((res) => res.json())
-      .then((data) => {
-        // data is an array of objects from your backend
-        setProducts(data.products);
-        console.log("Shop has fetched products:", data.products);
-      })
-      .catch((err) => {
-        console.error("Failed to fetch products", err);
-      });
-  }, []);
-    return (
-        <div className="app-container">
-        <section className="products d-flex justify-content-around flex-wrap gap-4">
-
-        {products.map((product) => ( 
-          <div key={product.name} className="card rounded-lg shadow-md" style={{ width: '18rem' }}>
+function ProductCard({ product }) {
+    return(
+        <div key={product.name} className="card rounded-lg shadow-md" style={{ width: '18rem' }}>
             <img
               src={product.photoURL} // Access the photoURL property
               className="card-img-top rounded-t-lg" // Tailwind for rounded top corners
@@ -43,10 +23,5 @@ export function Shop() {
               </Link>
             </div>
           </div>
-        ))}
-      </section>
-      </div>
-    );
+    )
 }
-
-export default Shop;

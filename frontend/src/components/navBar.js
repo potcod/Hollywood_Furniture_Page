@@ -7,6 +7,7 @@ function NavBar() {
     const handlePageChange = (page) => {
         setCurrentPage(page);
     };
+    
 
     return (
         <div>
@@ -16,7 +17,7 @@ function NavBar() {
 
             <header className="sub-header">
                 <h2 className="visually-hidden">Navigation</h2>
-                <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                <nav className="navbar navbar-expand-lg bg-body-tertiary mb-3">
                     <div className="container-fluid">
                         <button
                             className="navbar-toggler"
@@ -33,7 +34,7 @@ function NavBar() {
                         <div className="navbar-collapse" id="navbarNavAltMarkup">
                             <div className="navbar-nav">
                                 <a
-                                    className={`nav-link ${currentPage === 'Home' ? 'active' : ''}`}
+                                    className={`nav-link ${currentPage === 'Home' ? 'active' : ''} hover:underline`}
                                     aria-current={currentPage === 'Home' ? 'page' : undefined}
                                     href="#"
                                     onClick={() => handlePageChange('Home')}
@@ -43,7 +44,7 @@ function NavBar() {
 
                                 {/* Shop Link */}
                                 <a
-                                    className={`nav-link ${currentPage === 'Shop' ? 'active' : ''}`}
+                                    className={`nav-link ${currentPage === 'Shop' ? 'active' : ''} hover:underline`}
                                     aria-current={currentPage === 'Shop' ? 'page' : undefined}
                                     href="#/shop"
                                     onClick={() => handlePageChange('Shop')}
@@ -53,7 +54,7 @@ function NavBar() {
 
                                 {/* About Link */}
                                 <a
-                                    className={`nav-link ${currentPage === 'About' ? 'active' : ''}`}
+                                    className={`nav-link ${currentPage === 'About' ? 'active' : ''} hover:underline`}
                                     aria-current={currentPage === 'About' ? 'page' : undefined}
                                     href="#/about"
                                     onClick={() => handlePageChange('About')}
@@ -63,7 +64,7 @@ function NavBar() {
 
                                 {/* Contact Link */}
                                 <a
-                                    className={`nav-link ${currentPage === 'Contact' ? 'active' : ''}`}
+                                    className={`nav-link ${currentPage === 'Contact' ? 'active' : ''} hover:underline`}
                                     aria-current={currentPage === 'Contact' ? 'page' : undefined}
                                     href="#/contact"
                                     onClick={() => handlePageChange('Contact')}

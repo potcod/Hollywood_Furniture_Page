@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../css_styles/home.css';
+import { Product } from "../models/Product.js"; // Assuming you have a Product model defined
 export function Home() {
     const [images, setImages] = useState([]);
-    const [featuredProducts, setFeaturedProducts] = useState([]);
+    const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
     
 
     useEffect(() => {
@@ -12,7 +13,7 @@ export function Home() {
       .then((res) => res.json())
       .then((data) => {
         // data is an array of objects from your backend
-        const imageUrls = data.slideshow.map(item => item.photoURL); 
+        const imageUrls = data.slideshow.map((item:Product) => item.photoURL); 
         setImages(imageUrls);
         setFeaturedProducts(data.featuredProducts);
         console.log("Home has fetched images:", imageUrls);
@@ -68,7 +69,9 @@ export function Home() {
               src={product.photoURL} // Access the photoURL property
               className="card-img-top rounded-t-lg" // Tailwind for rounded top corners
               alt={`Product ${product.name}`} // Access the name property for alt text
-              onError={(e) => { e.target.src = 'https://placehold.co/286x180/cccccc/000000?text=Image+Not+Found'; }} // Fallback image on error
+              onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                (e.currentTarget as HTMLImageElement).src = 'https://placehold.co/286x180/cccccc/000000?text=Image+Not+Found';
+              }}
             />
             <div className="card-body p-4">
               <h5 className="card-title text-xl font-bold mb-2">
