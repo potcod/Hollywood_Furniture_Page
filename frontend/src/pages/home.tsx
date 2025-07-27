@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../css_styles/home.css';
 import { Product } from "../models/Product.js"; // Assuming you have a Product model defined
-import { ProductCard } from "../components/itemComponent";
+import  ProductCard  from "../components/ProductCard";
 export function Home() {
     const [images, setImages] = useState([]);
     const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);

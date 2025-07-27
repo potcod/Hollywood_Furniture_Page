@@ -1,16 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Product } from '../models/Product';
-export function ProductCard({ product }: { product: Product }) {
+
+export function ProductCard(product) {
   return (
     <div key={product.name} className="card rounded-lg shadow-md" style={{ width: '18rem' }}>
       <img
         src={product.photoURL} // Access the photoURL property
         className="card-img-top rounded-t-lg" // Tailwind for rounded top corners
         alt={`Product ${product.name}`} // Access the name property for alt text
-        onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-          (e.currentTarget as HTMLImageElement).src = 'https://placehold.co/286x180/cccccc/000000?text=Image+Not+Found';
-        }}
+        
       />
       <div className="card-body p-4">
         <h5 className="card-title text-xl font-bold mb-2">
