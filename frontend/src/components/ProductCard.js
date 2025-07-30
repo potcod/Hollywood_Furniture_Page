@@ -21,7 +21,7 @@ export function ProductCard(product) {
           Price: ${product.price} {/* Access the price property */}
         </div>
 
-        <Link to={`/shop/${product.name}`} className="btn btn-primary bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+        <Link to={`/shop/:${product.name}`} className="btn btn-primary bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
           Shop Now
         </Link>
       </div>

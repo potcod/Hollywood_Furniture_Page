@@ -9,6 +9,7 @@ import { Home } from "./pages/home.tsx";
 import { About } from "./pages/about.tsx";
 import { Contact } from "./pages/contact.tsx";
 import { Shop } from "./pages/shop.tsx";
+import { Product } from "./pages/product.tsx";
 import NavBar from "./components/navBar.js";
 
 function App() {
@@ -21,7 +22,9 @@ function App() {
         <Route path="/about" element={<About/>} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/shop" element={<Shop/>} />
+          <Route path="/shop/:productName" element={<Product/>} />
         
+
       </Routes>
     </Router>
   );
