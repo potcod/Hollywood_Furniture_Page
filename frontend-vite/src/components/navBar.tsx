@@ -4,21 +4,22 @@ import { Link } from "react-router-dom";
 function NavBar() {
     const [currentPage, setCurrentPage] = useState("Home");
 
-    const handlePageChange = (page) => {
+    const handlePageChange = (page: "Home" | "Shop" | "About" | "Contact") => {
         setCurrentPage(page);
     };
-    
+
 
     return (
-        <div>
+        <div className="bg-white">
             <header className="main-header text-center py-3">
                 <h1>Hollywood Furniture</h1>
             </header>
 
             <header className="sub-header">
                 <h2 className="visually-hidden">Navigation</h2>
-                <nav className="navbar navbar-expand-lg bg-body-tertiary mb-3">
-                    <div className="container-fluid">
+                <nav className="navbar navbar-expand-lg bg-body-tertiary  ">
+                    <div className="container-fluid "
+                    style={{ paddingLeft: "1%", paddingRight: "1%" }}>
                         <button
                             className="navbar-toggler"
                             type="button"
@@ -31,8 +32,8 @@ function NavBar() {
                             <span className="navbar-toggler-icon"></span>
                         </button>
 
-                        <div className="navbar-collapse" id="navbarNavAltMarkup">
-                            <div className="navbar-nav">
+                        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div className="navbar-nav ">
                                 <a
                                     className={`nav-link ${currentPage === 'Home' ? 'active' : ''} hover:underline`}
                                     aria-current={currentPage === 'Home' ? 'page' : undefined}
@@ -73,7 +74,7 @@ function NavBar() {
                                 </a>
                             </div>
 
-                            <div className="ms-auto d-flex align-items-center gap-3">
+                            <div className="ms-auto d-flex gap-3">
                                 <a
                                     href="https://www.yelp.com/biz/hollywood-furniture-gallery-los-angeles-3"
                                     target="_blank"

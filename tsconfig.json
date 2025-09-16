@@ -43,7 +43,7 @@
     "skipLibCheck": true // Skip type checking declaration files from node_modules (speeds up compilation)
   },
   "include": [
-    "frontend", // <--- CRITICAL: Tell TypeScript to include all files in your 'src' directory
+    "frontend", "frontend-vite/src/pages", "frontend-vite/src/components", "frontend-vite/src/models", // <--- CRITICAL: Tell TypeScript to include all files in your 'src' directory
     // Add other folders if your source code is outside 'src'
   ],
   "exclude": [

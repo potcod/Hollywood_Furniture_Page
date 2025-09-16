@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Product } from "../models/Product.js";
+import type{ Product } from "../models/Product.js";
 //import ProductCard from "../components/ProductCard.js";
-import ProductCard from "../components/itemComponent.js";
+import ProductCard from "../components/itemComponent.tsx";
 export function Shop() {
 
   const [products, setProducts] = useState<Product[]>([]);
@@ -26,6 +26,7 @@ export function Shop() {
         {products.map((product) => (
           <ProductCard key={product.name} product={product} />
         ))}
+        
       </section>
     </div>
   );

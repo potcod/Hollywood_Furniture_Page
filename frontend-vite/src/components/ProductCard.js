@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export function ProductCard(product) {
   return (
-    <div key={product.name} className="card rounded-lg shadow-md" style={{ width: '18rem' }}>
+    <div key={product.name} className="card rounded-lg shadow-md w-[18rem] sm:w-[20rem] md:w-[22rem]" >
       <img
         src={product.photoURL} // Access the photoURL property
         className="card-img-top rounded-t-lg" // Tailwind for rounded top corners
