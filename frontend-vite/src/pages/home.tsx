@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { Product } from "../models/Product.js";
 import ProductCard from "../components/itemComponent.tsx";
 import "../css_styles/home.css";
+import { Carousel } from "@material-tailwind/react";
 
 export default function Home() {
   const [images, setImages] = useState<string[]>([]);
@@ -22,9 +23,9 @@ export default function Home() {
       {/* Slideshow */}
       <div
         id="carouselExampleIndicators"
-        className="carousel slide mb-5"
+        className="carousel slide mb-5 w-150 h-150  "
         data-bs-ride="carousel"
-        style={{ width: "80%", maxWidth: "800px", margin: "0 auto" }} // ensures centering
+       
       >
         <div className="carousel-indicators">
           {images.map((_, idx) => (
@@ -39,8 +40,7 @@ export default function Home() {
             />
           ))}
         </div>
-
-        <div className="carousel-inner">
+        <div className="carousel-inner ">
           {images.map((src, idx) => (
             <div key={idx} className={`carousel-item ${idx === 0 ? "active" : ""}`}>
               <img src={src} className="w-full " alt={`Slide ${idx + 1}`} />
@@ -70,7 +70,7 @@ export default function Home() {
       </div>
 
       {/* Featured Products */}
-      <section className="flex flex-wrap justify-center gap-4 bg-red-950">
+      <section className="flex flex-wrap justify-center gap-4">
         {featuredProducts.map((product) => (
           <ProductCard key={product.name} product={product} />
         ))}

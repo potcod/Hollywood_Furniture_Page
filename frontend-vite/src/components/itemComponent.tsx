@@ -24,21 +24,19 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className="p-4 flex flex-col flex-grow">
         <h5 className="!text-xl !font-semibold mb-2">{product.name}</h5>
         <p className="!text-gray-700 mb-3 flex-grow">{product.description}</p>
-        <div className="!text-lg !font-bold mb-3">
+        <div className="!text-lg mb-3">
           Price: ${product.price}
         </div>
 
         {/* Shop button */}
         <Link
           to={`/shop/${product.name}`}
-          className="!bg-blue-500 hover:!bg-blue-600 !text-white !font-bold py-2 px-4 !rounded-lg transition duration-300 text-center"
+          className="!bg-blue-500 hover:!bg-blue-600 !text-white !font-bold py-2 px-4 !rounded-lg transition !no-underline duration-300 text-center "
           state={{ product }}
         >
           Shop Now
         </Link>
-        <div className="bg-red-500 text-white text-5xl p-10">
-          TAILWIND WORKS
-        </div>
+        
       </div>
     </div>
   );

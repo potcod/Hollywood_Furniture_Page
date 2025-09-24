@@ -20,11 +20,11 @@ export function Shop() {
       });
   }, []);
   return (
-    <div className="app-container">
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+    <div className="app-container mx-[20%]">
+      <section className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-y-5 ">
 
         {products.map((product) => (
-          <ProductCard key={product.name} product={product} />
+          <ProductCard key={product.name} product={product}  />
         ))}
         
       </section>

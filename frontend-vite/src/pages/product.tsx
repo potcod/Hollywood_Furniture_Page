@@ -6,19 +6,17 @@ export function Product() {
   const location = useLocation();
   const product = location.state?.product;
   return (
-    <div className="app-container">
-      <div className='flex flex-row ps-6'>
-        <img src={product.photoURL} alt={product.name} className="w-1/4 h-1/4  rounded-lg shadow-md " />
-        
+    <div className="mx-[20%]">
+      <div className='flex flex-row'>
+        <img src={product.photoURL} alt={product.name} className="w-2/5 h-2/5 rounded-lg shadow-md " />
+
         <div className="flex flex-col p-4">
-          <h1>
-            {product.name} {/* Access the name property */}
-          </h1>
-          <p>
-            {product.description} {/* Access the description property */}
+          <p className ="text-4xl !font-semibold mb-4">
+            {product.name} 
           </p>
+
           <div className="text-lg mb-3">
-            Price: ${product.price} {/* Access the price property */}
+            Price: ${product.price} 
           </div>
 
           <div className="">
@@ -30,7 +28,11 @@ export function Product() {
         </div>
 
       </div>
-
+      <div className="mt-4 ps-6">
+        <p className="text-gray-700">{product.description}</p>
+      </div>
+     
+      
     </div>
   );
 }
