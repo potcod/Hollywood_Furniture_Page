@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { Product } from "../models/Product.js";
 import ProductCard from "../components/itemComponent.tsx";
 import "../css_styles/home.css";
-import { Carousel } from "@material-tailwind/react";
+import "../components/carousel.tsx";
 
 export default function Home() {
   const [images, setImages] = useState<string[]>([]);
@@ -19,11 +19,11 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex flex-col items-center justify-center pt-[80px]">
+    <main className="flex flex-col items-center justify-center pt-[2%]">
       {/* Slideshow */}
       <div
         id="carouselExampleIndicators"
-        className="carousel slide mb-5 w-150 h-150  "
+        className="carousel slide mb-5 w-150 h-128  "
         data-bs-ride="carousel"
        
       >
@@ -43,7 +43,7 @@ export default function Home() {
         <div className="carousel-inner ">
           {images.map((src, idx) => (
             <div key={idx} className={`carousel-item ${idx === 0 ? "active" : ""}`}>
-              <img src={src} className="w-full " alt={`Slide ${idx + 1}`} />
+              <img src={src} className="w-full h-128 object-cover " alt={`Slide ${idx + 1}`} />
             </div>
           ))}
         </div>
@@ -68,7 +68,7 @@ export default function Home() {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-
+      
       {/* Featured Products */}
       <section className="flex flex-wrap justify-center gap-4">
         {featuredProducts.map((product) => (

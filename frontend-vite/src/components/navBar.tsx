@@ -41,7 +41,7 @@ function NavBar() {
       
       <nav className="bg-gray-100 border-t border-gray-300">
         <div className="max-w-7xl mx-auto px-4 py-2 flex gap-6 justify-center">
-          {["Home", "Shop", "About", "Contact"].map((page) => (
+          {["Home", "Shop", "About", "Contact",].map((page) => (
             <Link
               key={page}
               to={page === "Home" ? "/" : `/${page.toLowerCase()}`}

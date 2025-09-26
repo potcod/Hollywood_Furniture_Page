@@ -84,4 +84,24 @@ app.get('/shop/:productName', async (req, res) => { // Specific product details
     res.status(200).json(product);
 });
 
+app.post('/admin/', express.json(), async (req, res) => { // Admin add product
+    const { name, price, photo, description, category } = req.body;
+    try{
+        const docRef = firestore.collection("home").add({
+        name: name,
+        price: price,
+        photo: photo,
+        description: description,
+        category: category
+    });
+    console.log(`Added product: ${name}`);
+    } catch {
+        console.error("Error adding product to Firestore:", error);
+        res.status(500).json({ error: "Failed to add product" });
+    }
+        
+    
 
+    res.status(200).send({ message: 'Data received successfully!', data: { name, value } });
+
+});
