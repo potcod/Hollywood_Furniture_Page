@@ -7,7 +7,7 @@ export function Shop() {
 
   const [products, setProducts] = useState<Product[]>([]);
   useEffect(() => {
-    // Fetch images from backend
+    
     fetch("http://localhost:5000/shop")
       .then((res) => res.json())
       .then((data) => {

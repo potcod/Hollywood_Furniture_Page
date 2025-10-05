@@ -13,6 +13,7 @@ import Shop from "./pages/shop.tsx";
 import Admin from "./pages/admin.tsx";
 import { Product } from "./pages/product.tsx";
 import NavBar from "./components/navBar.tsx";
+import AdminEdit from "./pages/adminEdit.tsx";
 
 export default function App() {
   return (
@@ -26,6 +27,8 @@ export default function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/shop/:productName" element={<Product />} />
         <Route path = "/admin" element ={<Admin/>}/>
+        <Route path = "/admin/:productID" element ={<AdminEdit/>}/>
+
       </Routes>
       <footer className="flex flex-col items-center justify-center bg-gray-300 gap-1 py-2 mt-5">
         <p className="m-0 block text-slate-800 font-semibold text-sm">
