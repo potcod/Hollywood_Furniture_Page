@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function AdminEdit() {
+    
     const { productID } = useParams(); // get product id from URL
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         name: "",
         photo: "",
@@ -43,7 +46,7 @@ export default function AdminEdit() {
         e.preventDefault();
 
         try {
-            const response = await fetch(`http://localhost:5000/admin/${formData.name}`, {
+            const response = await fetch(`http://localhost:5000/admin/${productID}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -60,10 +63,11 @@ export default function AdminEdit() {
     };
     const handleDelete = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/admin/${formData.name}`, {
+            const response = await fetch(`http://localhost:5000/admin/${productID}`, {
                 method: "DELETE",
             });
             console.log("Delete response:", response);
+            navigate(`/admin/`);
 
         } catch (error) {
             console.error("Error deleting product:", error);
@@ -167,7 +171,7 @@ export default function AdminEdit() {
                         Submit
                     </button>
 
-                    <button className ="mx-1 !bg-red-500 text-white font- py-2 px-4 rounded "  onClick={handleDelete}>
+                    <button className ="mx-1 !bg-red-500 text-white font- py-2 px-4 rounded " onClick={handleDelete} type="button">
                         Delete
                     </button>
                 </div>

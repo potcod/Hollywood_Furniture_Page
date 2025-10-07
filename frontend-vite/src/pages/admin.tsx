@@ -3,10 +3,10 @@ import type { Product } from "../models/Product.js";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+
 export default function Admin() {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
-    id: "",
     name: "",
     photoURL: "",
     description: "",
@@ -50,6 +50,14 @@ export default function Admin() {
       if (!response.ok) {
         throw new Error("Failed to submit form");
       }
+      setFormData({
+        name: "",
+        photoURL: "",
+        description: "",
+        price: "",
+        category: "",
+      });
+
       console.log("Form submitted:", formData);
     } catch (error) {
       console.error("Error submitting form:", error);
