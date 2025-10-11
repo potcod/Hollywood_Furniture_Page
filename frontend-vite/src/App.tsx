@@ -10,14 +10,15 @@ import Home from "./pages/home.tsx";
 import About from "./pages/about.tsx";
 import Contact from "./pages/contact.tsx";
 import Shop from "./pages/shop.tsx";
-import Admin from "./pages/admin.tsx";
+import Admin from "./pages/adminPages/admin.tsx";
 import { Product } from "./pages/product.tsx";
 import NavBar from "./components/navBar.tsx";
-import AdminEdit from "./pages/adminEdit.tsx";
+import AdminEdit from "./pages/adminPages/adminEdit.tsx";
 
 export default function App() {
   return (
-    <Router>
+    <div className = "min-h-screen flex flex-col justify-between">
+      <Router>
       <NavBar />
 
       <Routes>
@@ -30,7 +31,7 @@ export default function App() {
         <Route path = "/admin/:productID" element ={<AdminEdit/>}/>
 
       </Routes>
-      <footer className="flex flex-col items-center justify-center bg-gray-300 gap-1 py-2 mt-5">
+      <footer className="flex flex-col items-center justify-center bg-gray-300 gap-1 py-2 mt-5 fixbed-bottom-0">
         <p className="m-0 block text-slate-800 font-semibold text-sm">
           Hollywood Furniture Gallery
         </p>
@@ -40,10 +41,10 @@ export default function App() {
         <p className="m-0 block text-slate-800 font-semibold text-sm">
           (626) 662-9469
         </p>
-        
-
-        
+      
       </footer>
     </Router>
+    </div>
+    
   );
 }

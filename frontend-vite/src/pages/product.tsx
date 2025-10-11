@@ -10,13 +10,14 @@ export function Product() {
       <div className='flex flex-row'>
         <img src={product.photoURL} alt={product.name} className="w-2/5 h-2/5 rounded-lg shadow-md " />
 
-        <div className="flex flex-col p-4">
-          <p className ="text-4xl !font-semibold mb-4">
-            {product.name} 
-          </p>
+        <div className="flex flex-col p-4 justify-between">
+
 
           <div className="text-lg mb-3">
-            Price: ${product.price} 
+            <p className="text-4xl !font-semibold mb-4">
+              {product.name}
+            </p>
+            Price: ${product.price}
           </div>
 
           <div className="">
@@ -31,8 +32,8 @@ export function Product() {
       <div className="mt-4 ps-6">
         <p className="text-gray-700">{product.description}</p>
       </div>
-     
-      
+
+
     </div>
   );
 }
