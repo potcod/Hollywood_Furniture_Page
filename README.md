@@ -12,11 +12,11 @@ Tools: Git, Node.js
 
 **Features**
 
-Browse and view furniture products
+- Browse and view furniture products
 
-User authentication with Google OAuth
+- User authentication with Google OAuth
 
-Backend REST APIs for product and user data
+- Backend REST APIs for product and user data
 
-Responsive and user-friendly interface
+- Responsive and user-friendly interface
 
